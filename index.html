@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tildem Hocam | İngilizce Özel Ders</title>
+  <meta name="description" content="Tildem Hocam ile online ve birebir İngilizce özel ders. Konuşma odaklı, sade ve etkili eğitim." />
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --primary:#1d4ed8;
+      --primary-dark:#163ea8;
+      --success:#16a34a;
+      --border:#e5e7eb;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .container{
+      width:min(92%, var(--max));
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.9);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+
+    .brand{
+      font-size:1.2rem;
+      font-weight:700;
+      color:var(--primary);
+    }
+
+    .menu{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .menu a{
+      text-decoration:none;
+      color:var(--text);
+      font-weight:600;
+      font-size:.95rem;
+    }
+
+    .menu a:hover{
+      color:var(--primary);
+    }
+
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .btn-primary{
+      background:var(--success);
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      opacity:.96;
+    }
+
+    .btn-secondary{
+      background:var(--primary);
+      color:#fff;
+    }
+
+    .hero{
+      padding:72px 0 40px;
+    }
+
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .hero-text h1{
+      font-size:clamp(2rem, 5vw, 3.7rem);
+      line-height:1.1;
+      margin:0 0 16px;
+    }
+
+    .hero-text p{
+      font-size:1.08rem;
+      color:var(--muted);
+      margin:0 0 24px;
+      max-width:650px;
+    }
+
+    .badge{
+      display:inline-block;
+      background:#e8f0ff;
+      color:var(--primary);
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:700;
+      margin-bottom:14px;
+      font-size:.92rem;
+    }
+
+    .hero-card{
+      background:linear-gradient(145deg, #ffffff, #edf3ff);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card h3{
+      margin-top:0;
+      margin-bottom:14px;
+      color:var(--primary);
+    }
+
+    .hero-list{
+      padding-left:18px;
+      margin:0 0 18px;
+      color:var(--text);
+    }
+
+    .hero-list li{
+      margin-bottom:8px;
+    }
+
+    section{
+      padding:34px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:2rem;
+      margin:0 0 10px;
+    }
+
+    .section-sub{
+      text-align:center;
+      color:var(--muted);
+      max-width:700px;
+      margin:0 auto 28px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .card h3, .card h4{
+      margin-top:0;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .about-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .list-check{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .list-check li{
+      padding:10px 0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .list-check li:last-child{
+      border-bottom:none;
+    }
+
+    .quote{
+      font-style:italic;
+      color:var(--text);
+      margin-bottom:10px;
+    }
+
+    .faq details{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:12px;
+      box-shadow:var(--shadow);
+    }
+
+    .faq summary{
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    .contact-box{
+      text-align:center;
+      background:linear-gradient(135deg, #1d4ed8, #2563eb);
+      color:#fff;
+      border-radius:24px;
+      padding:34px 24px;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-box p{
+      color:rgba(255,255,255,.9);
+      max-width:700px;
+      margin:10px auto 22px;
+    }
+
+    footer{
+      padding:28px 0 40px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .mini{
+      font-size:.92rem;
+      color:var(--muted);
+      margin-top:10px;
+    }
+
+    @media (max-width: 900px){
+      .hero-wrap,
+      .about-wrap,
+      .grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .menu{
+        gap:12px;
+      }
+
+      .hero{
+        padding-top:40px;
+      }
+
+      .hero-wrap,
+      .about-wrap,
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card{
+        padding:20px;
+      }
+
+      .btn{
+        width:100%;
+        text-align:center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Tildem Hocam</div>
+      <nav class="menu">
+        <a href="#anasayfa">Ana Sayfa</a>
+        <a href="#dersler">Dersler</a>
+        <a href="#neden">Neden Ben?</a>
+        <a href="#yorumlar">Yorumlar</a>
+        <a href="#sss">SSS</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="anasayfa">
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div class="hero-text">
+          <div class="badge">🎯 Konuşma odaklı İngilizce özel ders</div>
+          <h1>İngilizceyi konuşarak öğren</h1>
+          <p>
+            Online ve birebir İngilizce dersleriyle temelden başlayıp özgüvenle konuşmaya geç.
+            Sade anlatım, düzenli takip ve öğrenciye göre planlı çalışma.
+          </p>
+          <a class="btn btn-primary" href="https://wa.me/905XXXXXXXXX?text=Merhaba,%20İngilizce%20ders%20almak%20istiyorum." target="_blank">
+            Hemen WhatsApp’tan yaz
+          </a>
+          <div class="mini">İlk ders ücretsiz deneme yapılır.</div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Bu sitede ne bulacaksın?</h3>
+          <ul class="hero-list">
+            <li>Başlangıçtan ileri seviyeye uygun ders planı</li>
+            <li>Konuşma pratiği ve günlük İngilizce</li>
+            <li>Öğrenciye göre sade ve anlaşılır anlatım</li>
+            <li>Online veya birebir ders seçeneği</li>
+          </ul>
+          <a class="btn btn-secondary" href="#iletisim">Detaylı bilgi al</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="dersler">
+      <div class="container">
+        <h2 class="section-title">Verdiğim Dersler</h2>
+        <p class="section-sub">
+          Hedefine ve seviyene göre kişisel plan hazırlanır.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h4>Başlangıç Seviyesi</h4>
+            <p>Temelden başlayarak sağlam bir İngilizce altyapısı kurulur.</p>
+          </div>
+          <div class="card">
+            <h4>Konuşma Pratiği</h4>
+            <p>Konuşma korkusunu azaltan, aktif katılımlı dersler yapılır.</p>
+          </div>
+          <div class="card">
+            <h4>Okul Destek</h4>
+            <p>Ödev, sınav ve konu eksikleri için düzenli destek verilir.</p>
+          </div>
+          <div class="card">
+            <h4>Yetişkin İngilizcesi</h4>
+            <p>Günlük yaşam ve iş hayatına uygun pratik İngilizce çalışılır.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="neden">
+      <div class="container">
+        <h2 class="section-title">Neden Benimle Çalışmalısın?</h2>
+        <p class="section-sub">
+          Amacım İngilizceyi zor bir ders gibi değil, kullanılabilen bir beceriye dönüştürmek.
+        </p>
+
+        <div class="about-wrap">
+          <div class="card">
+            <h3>Tildem Hocam</h3>
+            <p>
+              İngilizce öğrenmek isteyen öğrencilerle sade, anlaşılır ve konuşma odaklı
+              bir sistemle çalışıyorum. Her öğrenciye aynı yöntem değil, uygun yöntem gerekir.
+            </p>
+          </div>
+
+          <div class="card">
+            <ul class="list-check">
+              <li>✔ Öğrenci odaklı anlatım</li>
+              <li>✔ Pratik ve sade yöntem</li>
+              <li>✔ Birebir ilgi ve takip</li>
+              <li>✔ Kısa sürede ilerlemeye odaklı sistem</li>
+              <li>✔ Online ve yüz yüze seçenek</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="yorumlar">
+      <div class="container">
+        <h2 class="section-title">Öğrenci Yorumları</h2>
+        <p class="section-sub">Güven veren en önemli şey gerçek deneyimdir.</p>
+
+        <div class="grid">
+          <div class="card">
+            <div class="quote">“Daha önce konuşamıyordum, şimdi daha rahat konuşuyorum.”</div>
+            <p>– Öğrenci</p>
+          </div>
+          <div class="card">
+            <div class="quote">“Dersler çok anlaşılır ve keyifliydi.”</div>
+            <p>– Öğrenci</p>
+          </div>
+          <div class="card">
+            <div class="quote">“Zor sandığım konular sade anlatımla kolaylaştı.”</div>
+            <p>– Öğrenci</p>
+          </div>
+          <div class="card">
+            <div class="quote">“Konuşma korkumu aşmamda çok faydası oldu.”</div>
+            <p>– Öğrenci</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sss">
+      <div class="container faq">
+        <h2 class="section-title">Sık Sorulan Sorular</h2>
+        <p class="section-sub">Kısa cevaplarla en çok merak edilenler.</p>
+
+        <details>
+          <summary>Dersler online mı yüz yüze mi?</summary>
+          <p>İkisi de olabilir. Duruma ve uygunluğa göre plan yapılır.</p>
+        </details>
+
+        <details>
+          <summary>Başlangıç seviyesindeysem uygun mu?</summary>
+          <p>Evet. Dersler seviyene göre hazırlanır ve temelden başlanabilir.</p>
+        </details>
+
+        <details>
+          <summary>Ders süresi ne kadar?</summary>
+          <p>İhtiyaca göre değişebilir. Standart ders planı görüşmede belirlenir.</p>
+        </details>
+
+        <details>
+          <summary>İlk ders ücretsiz mi?</summary>
+          <p>Evet, tanışma ve deneme amaçlı ilk ders ücretsiz yapılabilir.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="iletisim">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Hemen iletişime geç</h2>
+          <p>
+            İngilizceyi birlikte geliştirelim. Ders almak, bilgi istemek veya seviye durumunu konuşmak için
+            WhatsApp’tan yazabilirsin.
+          </p>
+          <a class="btn btn-primary" href="https://wa.me/905XXXXXXXXX?text=Merhaba,%20İngilizce%20özel%20ders%20hakkında%20bilgi%20almak%20istiyorum." target="_blank">
+            WhatsApp’tan mesaj gönder
+          </a>
+          <div class="mini" style="color:rgba(255,255,255,.9);">Telefon numaranı linkte kendin güncelle.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Tildem Hocam | İngilizce Özel Ders
+    </div>
+  </footer>
+
+</body>
+</html>
