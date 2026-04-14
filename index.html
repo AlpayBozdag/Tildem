@@ -1,99 +1,371 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayna Trader | VİOP & Ekonomi Platformu</title>
-
-<style>
-body{margin:0;font-family:Arial;background:#020617;color:white;}
-header{display:flex;justify-content:space-between;padding:15px;background:#000;}
-nav a{color:white;margin:10px;text-decoration:none;}
-.section{padding:40px;}
-.card{background:#1e293b;padding:15px;border-radius:10px;margin:10px;}
-.grid{display:flex;flex-wrap:wrap;}
-.btn{background:#22c55e;padding:12px;border-radius:8px;color:white;text-decoration:none;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayna Trader Pro | VİOP & Ekonomi</title>
+  <meta name="description" content="VİOP, ekonomi, finans haberleri ve TradingView grafiklerini bir araya getiren Ayna Trader Pro platformu.">
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#101b2d;
+      --panel2:#16233a;
+      --text:#eef4ff;
+      --muted:#9eb0cf;
+      --line:#243553;
+      --green:#22c55e;
+      --red:#ef4444;
+      --blue:#38bdf8;
+      --amber:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(94%,1200px);margin:auto}
+    header{
+      background:#050b16;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      position:sticky;top:0;z-index:30;
+    }
+    .top{
+      display:flex;justify-content:space-between;align-items:center;
+      gap:16px;padding:16px 0;
+    }
+    .logo{
+      font-size:26px;font-weight:800;line-height:1.05;
+    }
+    nav{
+      display:flex;flex-wrap:wrap;gap:10px;
+    }
+    nav a{
+      padding:10px 12px;border-radius:10px;color:var(--muted);font-weight:700;
+    }
+    nav a:hover{background:rgba(255,255,255,.05);color:#fff}
+    .hero{
+      padding:42px 0 18px;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:18px;
+    }
+    .box,.card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:20px;
+      padding:22px;
+    }
+    .eyebrow{
+      display:inline-block;
+      background:rgba(56,189,248,.12);
+      color:var(--blue);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-size:48px;
+      line-height:1.05;
+    }
+    .hero p{
+      color:var(--muted);
+      font-size:18px;
+      margin:0 0 18px;
+    }
+    .btns{
+      display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;
+    }
+    .btn{
+      display:inline-block;
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:700;
+    }
+    .btn-wa{background:var(--green);color:#fff}
+    .btn-dark{background:#1d4ed8;color:#fff}
+    .mini-grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px;
+    }
+    .mini{
+      background:rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:14px;
+    }
+    .mini small{display:block;color:var(--muted);margin-bottom:6px}
+    .mini strong{font-size:20px}
+    .section{padding:18px 0}
+    .section h2{
+      margin:0 0 14px;
+      font-size:30px;
+    }
+    .muted{color:var(--muted)}
+    .grid-3{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+    }
+    .grid-2{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:16px;
+    }
+    .card h3{margin:0 0 10px;font-size:21px}
+    ul{margin:0;padding-left:18px}
+    li{margin:8px 0;color:var(--muted)}
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      margin:4px 6px 0 0;
+      font-size:13px;
+    }
+    .tv-wrap{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.06);
+      min-height:440px;
+      background:#0b1220;
+    }
+    .link-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    }
+    .link-card{
+      display:block;
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:18px;
+      padding:18px;
+    }
+    .link-card strong{display:block;margin-bottom:8px}
+    .link-card span{color:var(--muted);font-size:14px}
+    footer{
+      margin-top:28px;
+      padding:24px 0 40px;
+      text-align:center;
+      color:var(--muted);
+    }
+    @media (max-width: 900px){
+      .hero-grid,.grid-3,.grid-2,.link-grid{grid-template-columns:1fr}
+      h1{font-size:36px}
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-<h2>Ayna Trader</h2>
-<nav>
-<a href="#">Dashboard</a>
-<a href="#">VİOP</a>
-<a href="#">Ekonomi</a>
-<a href="#">Haber</a>
-</nav>
+  <div class="container top">
+    <div class="logo">Ayna<br>Trader</div>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#viop">VİOP</a>
+      <a href="#ekonomi">Ekonomi</a>
+      <a href="#haber">Haber</a>
+      <a href="#linkler">Linkler</a>
+    </nav>
+  </div>
 </header>
 
-<!-- DASHBOARD -->
-<section class="section">
-<h2>📊 Dashboard</h2>
+<main class="container">
+  <section class="hero" id="dashboard">
+    <div class="hero-grid">
+      <div class="box">
+        <div class="eyebrow">Her türlü trade için özel sistem</div>
+        <h1>VİOP için uzman Ayna Trader, ekonomi ve finans rehberliği</h1>
+        <p>
+          VİOP odaklı analiz, ekonomi değerlendirmesi, finans haberleri ve TradingView grafiklerini
+          tek ekranda birleştiren profesyonel görünüm.
+        </p>
+        <div class="btns">
+          <a class="btn btn-wa" href="https://wa.me/905066915079?text=Merhaba,%20Ayna%20Trader%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank">WhatsApp’tan Yaz</a>
+          <a class="btn btn-dark" href="#viop">VİOP Kanalına Git</a>
+        </div>
 
-<div class="grid">
-<div class="card">XBANK: <span id="xbank">15700</span></div>
-<div class="card">Trend: <span id="trend">SHORT</span></div>
-<div class="card">Enerji: <span id="energy">Pozitif</span></div>
-</div>
+        <div class="mini-grid">
+          <div class="mini">
+            <small>XBANK</small>
+            <strong id="xbankVal">15617</strong>
+          </div>
+          <div class="mini">
+            <small>Trend</small>
+            <strong id="trendVal" style="color:var(--red)">SHORT</strong>
+          </div>
+          <div class="mini">
+            <small>Enerji</small>
+            <strong id="energyVal" style="color:var(--green)">Pozitif</strong>
+          </div>
+          <div class="mini">
+            <small>Güç</small>
+            <strong id="powerVal">7 / 10</strong>
+          </div>
+        </div>
+      </div>
 
-</section>
+      <div class="box">
+        <h2 style="margin-top:0">Canlı görünüm</h2>
+        <p class="muted">Örnek sinyal paneli</p>
+        <div class="mini-grid">
+          <div class="mini">
+            <small>Yön</small>
+            <strong style="color:var(--red)">SHORT</strong>
+          </div>
+          <div class="mini">
+            <small>Olasılık</small>
+            <strong style="color:var(--amber)">%65</strong>
+          </div>
+          <div class="mini">
+            <small>Mod</small>
+            <strong style="color:var(--blue)">TREND</strong>
+          </div>
+          <div class="mini">
+            <small>Odak</small>
+            <strong>VİOP</strong>
+          </div>
+        </div>
 
-<!-- GRAFİK -->
-<section class="section">
-<h2>📈 Canlı Grafik</h2>
-<iframe src="https://www.tradingview.com/widgetembed/?symbol=BIST:XU100&interval=5&theme=dark" width="100%" height="400"></iframe>
-</section>
+        <div style="margin-top:14px">
+          <span class="pill">Hacim takibi</span>
+          <span class="pill">Akış okuma</span>
+          <span class="pill">Ekonomi filtresi</span>
+          <span class="pill">Risk disiplini</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- VIOP SİNYAL -->
-<section class="section">
-<h2>📡 VİOP Kanalı</h2>
+  <section class="section" id="viop">
+    <h2>📊 VİOP Kanalı</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Canlı Grafik</h3>
+        <div class="tv-wrap">
+          <div class="tradingview-widget-container" style="height:440px;width:100%">
+            <div id="tradingview_viop" style="height:440px;width:100%"></div>
+          </div>
+        </div>
+      </div>
 
-<div class="card">
-<p>Yön: <span id="direction">SHORT</span></p>
-<p>Güç: <span id="power">7</span>/10</p>
-<p>Olasılık: <span id="prob">%65</span></p>
-</div>
+      <div class="card">
+        <h3>VİOP Paneli</h3>
+        <ul>
+          <li>Long / Short görünümü</li>
+          <li>Trend gücü</li>
+          <li>Hacim odaklı yorum</li>
+          <li>Risk ve disiplin vurgusu</li>
+          <li>Günlük odak başlıkları</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <section class="section" id="ekonomi">
+    <h2>🌍 Ekonomi Kanalı</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Makro Ekonomi</h3>
+        <p class="muted">Faiz, enflasyon, büyüme ve para politikası etkilerini sade takip alanı.</p>
+      </div>
+      <div class="card">
+        <h3>Piyasa Etkisi</h3>
+        <p class="muted">Ekonomik veri akışının VİOP ve borsa üzerindeki olası etkileri.</p>
+      </div>
+      <div class="card">
+        <h3>Finans Rehberliği</h3>
+        <p class="muted">Veri, haber ve fiyat davranışını birlikte yorumlamaya yardımcı bölüm.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- EKONOMİ KANALI -->
-<section class="section">
-<h2>🌍 Ekonomi Kanalı</h2>
+  <section class="section" id="haber">
+    <h2>📰 Finans Haberleri</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>TradingView Haber Akışı</h3>
+        <div class="tv-wrap">
+          <div class="tradingview-widget-container" style="height:440px;width:100%">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+            {
+              "feedMode": "all_symbols",
+              "colorTheme": "dark",
+              "isTransparent": false,
+              "displayMode": "regular",
+              "width": "100%",
+              "height": 440,
+              "locale": "tr"
+            }
+            </script>
+          </div>
+        </div>
+      </div>
 
-<div class="card">
-<p>ABD faiz beklentisi yükseldi</p>
-<p>Enflasyon verisi piyasayı etkiliyor</p>
-<p>Jeopolitik riskler arttı</p>
-</div>
+      <div class="card">
+        <h3>Takip Başlıkları</h3>
+        <ul>
+          <li>Merkez bankası kararları</li>
+          <li>Enflasyon ve faiz beklentileri</li>
+          <li>Jeopolitik riskler</li>
+          <li>Banka hisseleri ve endeks etkisi</li>
+          <li>Global piyasa akışı</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <section class="section" id="linkler">
+    <h2>🔗 Borsa Linkleri</h2>
+    <div class="link-grid">
+      <a class="link-card" href="https://www.tradingview.com/" target="_blank">
+        <strong>TradingView</strong>
+        <span>Grafikler ve teknik görünüm</span>
+      </a>
+      <a class="link-card" href="https://www.investing.com/" target="_blank">
+        <strong>Investing</strong>
+        <span>Piyasa ve veri takibi</span>
+      </a>
+      <a class="link-card" href="https://www.bloomberg.com/" target="_blank">
+        <strong>Bloomberg</strong>
+        <span>Global finans haberleri</span>
+      </a>
+      <a class="link-card" href="https://www.forexfactory.com/" target="_blank">
+        <strong>Forex Factory</strong>
+        <span>Ekonomik takvim</span>
+      </a>
+    </div>
+  </section>
+</main>
 
-<!-- HABER -->
-<section class="section">
-<h2>📰 Finans Haberleri</h2>
+<footer>
+  © 2026 Ayna Trader • Trade bir şans işi değil, sistem işidir.
+</footer>
 
-<iframe src="https://www.tradingview.com/widgetembed/?frameElementId=news" width="100%" height="400"></iframe>
-
-</section>
-
-<!-- WHATSAPP -->
-<section class="section">
-<h2>📲 İletişim</h2>
-
-<a class="btn" href="https://wa.me/905066915079">WhatsApp</a>
-
-</section>
-
-<!-- JS (SİNYAL SİMÜLASYON) -->
+<script src="https://s3.tradingview.com/tv.js"></script>
 <script>
-setInterval(()=>{
-document.getElementById("xbank").innerText = 15600 + Math.floor(Math.random()*200);
-document.getElementById("power").innerText = Math.floor(Math.random()*10);
-},3000);
+  new TradingView.widget({
+    "container_id": "tradingview_viop",
+    "autosize": true,
+    "symbol": "BIST:XU100",
+    "interval": "5",
+    "timezone": "Europe/Istanbul",
+    "theme": "dark",
+    "style": "1",
+    "locale": "tr",
+    "toolbar_bg": "#0b1220",
+    "enable_publishing": false,
+    "hide_top_toolbar": false,
+    "save_image": false
+  });
+
+  setInterval(() => {
+    const x = 15550 + Math.floor(Math.random() * 120);
+    const p = 5 + Math.floor(Math.random() * 4);
+    document.getElementById("xbankVal").innerText = x;
+    document.getElementById("powerVal").innerText = p + " / 10";
+  }, 3000);
 </script>
 
 </body>
 </html>
-```
