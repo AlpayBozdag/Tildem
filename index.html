@@ -1,233 +1,479 @@
-<!DOCTYPE html><html lang="tr">
+  <!DOCTYPE html>
+<html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayna Trader Pro</title>
-<style>
-:root{--bg:#07111f;--bg2:#0b1527;--panel:#101b2d;--panel2:#16233a;--text:#fff;--muted:#9eb0cf;--green:#22c55e;--blue:#1d4ed8;--amber:#f59e0b;--line:rgba(255,255,255,.08)}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#07111f,#0b1527);color:var(--text)}
-.container{width:min(95%,1180px);margin:auto}
-header{background:#050b16;padding:15px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
-nav a{margin-right:10px;color:#aaa;text-decoration:none;font-weight:700} nav a:hover{color:#fff}
-.section{margin-top:22px}.card{background:linear-gradient(180deg,var(--panel),var(--panel2));padding:20px;border-radius:18px;border:1px solid var(--line)}
-textarea,input{width:100%;background:#16233a;color:#fff;border:1px solid var(--line);padding:12px;border-radius:10px}
-textarea{height:220px;resize:vertical}.btn{display:inline-block;padding:12px 16px;background:var(--green);color:#fff;border:none;border-radius:10px;cursor:pointer;text-decoration:none;font-weight:700}
-.btn.secondary{background:var(--blue)} .btn.amber{background:var(--amber);color:#111}
-.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch}.badge{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(34,197,94,.12);color:#7ee7a0;font-size:13px;font-weight:700;margin-bottom:12px}
-.hero h1{margin:0 0 10px;font-size:42px;line-height:1.06}.muted{color:var(--muted)} .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.miniGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.mini{background:rgba(255,255,255,.04);padding:14px;border-radius:14px;border:1px solid var(--line)} .mini small{display:block;color:var(--muted);margin-bottom:6px}.mini strong{font-size:22px}
-.twoCol{display:grid;grid-template-columns:1fr 1fr;gap:12px}.threeCol{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.fourCol{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.feature{background:rgba(255,255,255,.04);padding:16px;border-radius:14px;border:1px solid var(--line)} .feature h4{margin:0 0 8px}.feature p{margin:0;color:var(--muted);line-height:1.5}
-.tableWrap{overflow:auto}.rateTable{width:100%;border-collapse:collapse}.rateTable th,.rateTable td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left}.rateTable th{color:#cfe0ff}
-.linkCard{display:block;background:rgba(255,255,255,.04);padding:16px;border-radius:14px;border:1px solid var(--line);text-decoration:none;color:#fff}
-.linkCard span{display:block;color:var(--muted);margin-top:6px}.footerSpace{height:12px}
-@media (max-width:900px){.hero,.threeCol,.fourCol,.twoCol{grid-template-columns:1fr}.hero h1{font-size:32px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayna Trader Pro</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --bg2:#0b1527;
+      --panel:#101b2d;
+      --panel2:#16233a;
+      --text:#ffffff;
+      --muted:#9eb0cf;
+      --green:#22c55e;
+      --blue:#1d4ed8;
+      --amber:#f59e0b;
+      --line:rgba(255,255,255,.08);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,var(--bg),var(--bg2));
+      color:var(--text);
+      line-height:1.65;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    .container{
+      width:min(95%,1180px);
+      margin:auto;
+    }
+
+    header{
+      background:#050b16;
+      padding:15px 0;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+
+    nav a{
+      margin-right:10px;
+      color:#aaa;
+      font-weight:700;
+    }
+
+    nav a:hover{color:#fff}
+
+    .section{margin-top:22px}
+
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      padding:20px;
+      border-radius:18px;
+      border:1px solid var(--line);
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 16px;
+      background:var(--green);
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    .btn.secondary{background:var(--blue)}
+    .btn.amber{background:var(--amber); color:#111}
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(34,197,94,.12);
+      color:#7ee7a0;
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size:42px;
+      line-height:1.06;
+    }
+
+    .muted{color:var(--muted)}
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .miniGrid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .mini{
+      background:rgba(255,255,255,.04);
+      padding:14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+    }
+
+    .mini small{
+      display:block;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    .mini strong{font-size:22px}
+
+    .twoCol{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .threeCol{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .fourCol{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+
+    .linkCard{
+      display:block;
+      background:rgba(255,255,255,.04);
+      padding:16px;
+      border-radius:14px;
+      border:1px solid var(--line);
+    }
+
+    .linkCard span{
+      display:block;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    .tableWrap{overflow:auto}
+
+    .rateTable{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    .rateTable th,
+    .rateTable td{
+      padding:12px 10px;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+    }
+
+    .rateTable th{color:#cfe0ff}
+
+    .article h2{margin:0 0 8px}
+    .article h4{margin:24px 0 8px;color:#dfeaff}
+    .article p{margin:0 0 14px}
+    .article ul{margin:0 0 14px 18px}
+    .article li{margin-bottom:8px}
+
+    .article-box{
+      max-height:320px;
+      overflow:hidden;
+      position:relative;
+      transition:max-height .35s ease;
+    }
+
+    .article-box.expanded{
+      max-height:2000px;
+      overflow-y:auto;
+      padding-right:8px;
+    }
+
+    .article-box.expanded::-webkit-scrollbar{
+      width:6px;
+    }
+
+    .article-box.expanded::-webkit-scrollbar-thumb{
+      background:#1d4ed8;
+      border-radius:10px;
+    }
+
+    .fade-overlay{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:90px;
+      background:linear-gradient(to bottom, rgba(16,27,45,0), rgba(16,27,45,1));
+      pointer-events:none;
+    }
+
+    .article-box.expanded .fade-overlay{
+      display:none;
+    }
+
+    .footerSpace{height:18px}
+
+    @media (max-width:900px){
+      .hero,.threeCol,.fourCol,.twoCol{grid-template-columns:1fr}
+      .hero h1{font-size:32px}
+    }
+  </style>
 </head>
 <body>
-<header>
-<div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
-  <h2 style="margin:0;">Ayna Trader</h2>
-  <nav>
-    <a href="#anasayfa">Ana Sayfa</a>
-    <a href="#grafik">Grafik</a>
-    <a href="#piyasa">Piyasa</a>
-    <a href="#haber">Haber</a>
-    <a href="#yazi">Yazı</a>
-    <a href="#iletisim">İletişim</a>
-  </nav>
-</div>
-</header><div class="container"><div class="section" id="anasayfa">
-  <div class="hero">
-    <div class="card">
-      <div class="badge">Her türlü trade için özel sistem</div>
-      <h1>Ayna Trader Pro ile VİOP, borsa ve ekonomi tek sayfada</h1>
-      <p class="muted">BIST odaklı ekran, Investing bağlantıları, saat ve takvim, döviz-altın özeti, banka mevduat faizi karşılaştırması, haber bağlantıları ve haftalık yazı bölümü.</p>
-      <div class="actions">
-        <a class="btn" href="mailto:alpay_bozdag@hotmail.com?subject=Ayna%20Trader%20İletişim">📧 Mail Gönder</a>
-        <a class="btn secondary" href="#grafik">📊 Canlı Grafik</a>
-        <a class="btn amber" href="#piyasa">💹 Günlük Piyasa</a>
-      </div>
-      <div class="miniGrid">
-        <div class="mini"><small>Odak</small><strong>VİOP</strong></div>
-        <div class="mini"><small>Grafik</small><strong>Investing</strong></div>
-        <div class="mini"><small>İletişim</small><strong>Mail</strong></div>
-        <div class="mini"><small>Bölüm</small><strong>Haftanın Yazısı</strong></div>
-      </div>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+      <h2 style="margin:0;">Ayna Trader</h2>
+      <nav>
+        <a href="#anasayfa">Ana Sayfa</a>
+        <a href="#grafik">Grafik</a>
+        <a href="#piyasa">Piyasa</a>
+        <a href="#haber">Haber</a>
+        <a href="#yazi">Yazı</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
     </div>
-    <div class="card">
-      <div id="clockBox" style="margin-bottom:16px;padding:12px;background:#16233a;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-radius:14px;">
-        <div>
-          <div style="font-size:28px;font-weight:700;" id="liveClock">00:00:00</div>
-          <div style="color:#9eb0cf;" id="liveDate">Tarih yükleniyor...</div>
+  </header>
+
+  <div class="container">
+    <section class="section" id="anasayfa">
+      <div class="hero">
+        <div class="card">
+          <div class="badge">Her türlü trade için özel sistem</div>
+          <h1>Ayna Trader Pro ile VİOP, borsa ve ekonomi tek sayfada</h1>
+          <p class="muted">BIST odaklı ekran, Investing bağlantıları, saat ve takvim, döviz-altın özeti, banka mevduat faizi bağlantıları, haber linkleri ve haftanın yazısı aynı sayfada.</p>
+          <div class="actions">
+            <a class="btn" href="mailto:alpay_bozdag@hotmail.com?subject=Ayna%20Trader%20İletişim">📧 Mail Gönder</a>
+            <a class="btn secondary" href="#grafik">📊 Canlı Grafik</a>
+            <a class="btn amber" href="#yazi">✍️ Haftanın Yazısı</a>
+          </div>
+          <div class="miniGrid">
+            <div class="mini"><small>Odak</small><strong>VİOP</strong></div>
+            <div class="mini"><small>Grafik</small><strong>Investing</strong></div>
+            <div class="mini"><small>İletişim</small><strong>Mail</strong></div>
+            <div class="mini"><small>İçerik</small><strong>Makale</strong></div>
+          </div>
         </div>
-        <div style="color:#f59e0b;font-weight:700;">Europe/Istanbul</div>
+
+        <div class="card">
+          <div id="clockBox" style="margin-bottom:16px;padding:12px;background:#16233a;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-radius:14px;">
+            <div>
+              <div style="font-size:28px;font-weight:700;" id="liveClock">00:00:00</div>
+              <div style="color:#9eb0cf;" id="liveDate">Tarih yükleniyor...</div>
+            </div>
+            <div style="color:#f59e0b;font-weight:700;">Europe/Istanbul</div>
+          </div>
+
+          <h3 style="margin-top:0;">📅 Takvim</h3>
+          <div id="calendarMonth" style="color:#9eb0cf;margin-bottom:10px;"></div>
+          <div id="calendarGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;"></div>
+        </div>
       </div>
-      <h3 style="margin-top:0;">📅 Takvim</h3>
-      <div id="calendarMonth" style="color:#9eb0cf;margin-bottom:10px;"></div>
-      <div id="calendarGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;"></div>
-    </div>
-  </div>
-</div><div class="section" id="grafik">
-  <h3>📊 Canlı Grafik ve Piyasa Ekranı</h3>
-  <div class="threeCol">
-    <a class="linkCard" href="https://tr.investing.com/indices/ise-100" target="_blank">
-      <strong>BIST100 Canlı</strong>
-      <span>Investing üzerinde canlı endeks sayfasını aç.</span>
-    </a>
-    <a class="linkCard" href="https://tr.investing.com/currencies/usd-try" target="_blank">
-      <strong>USD/TRY Canlı</strong>
-      <span>Dolar/TL canlı fiyat ve grafik.</span>
-    </a>
-    <a class="linkCard" href="https://tr.investing.com/currencies/eur-try" target="_blank">
-      <strong>EUR/TRY Canlı</strong>
-      <span>Euro/TL canlı fiyat ve grafik.</span>
-    </a>
-  </div>
-  <div class="card" style="margin-top:14px;">
-    <h4 style="margin-top:0;">Investing Grafik Alanı</h4>
-    <p class="muted">Investing sayfaları tarayıcı güvenlik kısıtları nedeniyle bazı cihazlarda doğrudan gömülü görünmeyebilir. En sağlam kullanım için aşağıdaki canlı sayfa düğmelerini kullan.</p>
-    <div class="actions">
-      <a class="btn secondary" href="https://tr.investing.com/indices/ise-100" target="_blank">BIST100 Aç</a>
-      <a class="btn secondary" href="https://tr.investing.com/currencies/gau-try" target="_blank">Gram Altın Aç</a>
-      <a class="btn secondary" href="https://tr.investing.com/currencies/usd-try" target="_blank">USD/TRY Aç</a>
-      <a class="btn secondary" href="https://tr.investing.com/currencies/eur-try" target="_blank">EUR/TRY Aç</a>
-    </div>
-  </div>
-</div><div class="section" id="piyasa">
-  <h3>💹 Günlük Altın, Döviz ve Mevduat Faizi</h3>
-  <div class="card">
-    <div class="tableWrap">
-      <table class="rateTable">
-        <thead>
-          <tr>
-            <th>Kalem</th>
-            <th>Güncel Değer</th>
-            <th>Not</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Gram Altın</td><td>₺6.941,84</td><td>Gün içi referans</td></tr>
-          <tr><td>USD/TRY</td><td>44,7365</td><td>Güncel kur</td></tr>
-          <tr><td>EUR/TRY</td><td>52,7918</td><td>Güncel kur</td></tr>
-          <tr><td>32 Günlük Mevduat</td><td>%45 civarı üst seviye</td><td>Banka ve tutara göre değişir</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="muted" style="margin-top:12px;">Not: Banka faizleri müşteri segmenti, yeni müşteri kampanyası, tutar ve kanal bazında değişebilir. Bu yüzden aşağıdaki canlı karşılaştırma bağlantıları eklenmiştir.</p>
-  </div>  <div class="fourCol" style="margin-top:14px;">
-    <a class="linkCard" href="https://bigpara.hurriyet.com.tr/altin/kapali-carsi-altin-fiyatlari/" target="_blank">
-      <strong>Altın Fiyatları</strong>
-      <span>Kapalıçarşı ve gram altın güncel ekranı.</span>
-    </a>
-    <a class="linkCard" href="https://www.tcmb.gov.tr/wps/wcm/connect/en/tcmb%2Ben/main%2Bmenu/statistics/exchange%2Brates/indicative%2Bexchange%2Brates" target="_blank">
-      <strong>TCMB Döviz</strong>
-      <span>Resmi gösterge niteliğindeki günlük döviz kurları.</span>
-    </a>
-    <a class="linkCard" href="https://www.hesapkurdu.com/mevduat" target="_blank">
-      <strong>Mevduat Faizi</strong>
-      <span>Banka banka güncel mevduat faizi karşılaştırması.</span>
-    </a>
-    <a class="linkCard" href="https://www.hangikredi.com/yatirim-araclari/mevduat-faiz-oranlari" target="_blank">
-      <strong>Banka Faiz Oranları</strong>
-      <span>Güncel faiz değişim grafiği ve oranlar.</span>
-    </a>
-  </div>
-</div><div class="section" id="haber">
-  <h3>🌍 Reuters ve CNN Canlı Sayfaları</h3>
-  <div class="twoCol">
-    <a class="linkCard" href="https://www.reuters.com/markets/" target="_blank">
-      <strong>Reuters Markets</strong>
-      <span>Canlı piyasa ve global market haberleri</span>
-    </a>
-    <a class="linkCard" href="https://www.cnn.com/business" target="_blank">
-      <strong>CNN Business</strong>
-      <span>İş dünyası ve piyasa haberleri</span>
-    </a>
-  </div>
-</div><div class="section" id="yazi">
-  <h3>✍️ Ekonomist Alpay Bozdağ - Haftanın Yazısı</h3>
-  <div class="card">
-    <div class="twoCol">
-      <input type="text" placeholder="Başlık" id="baslik">
-      <input type="text" placeholder="Tarih / konu" id="konu">
-    </div><br>
-    <textarea id="haftalikYazi" placeholder="Haftalık yorumlarını buraya yaz..."></textarea><br><br>
-    <button class="btn" onclick="kaydet()">Kaydet</button>
-  </div>
-</div><div class="section" id="iletisim">
-  <h3>📬 İletişim</h3>
-  <div class="card">
-    <p class="muted">WhatsApp kaldırıldı. İletişim için doğrudan e‑posta adresi kullanılmaktadır.</p>
-    <div class="actions">
-      <a class="btn" href="mailto:alpay_bozdag@hotmail.com?subject=Ayna%20Trader%20İletişim">alpay_bozdag@hotmail.com</a>
-    </div>
-    <br>
-    <h4 style="margin:0 0 10px;">Mesaj Gönder</h4>
-    <div class="twoCol">
-      <input type="text" id="isim" placeholder="Adınız">
-      <input type="email" id="mailAdres" placeholder="E-posta adresiniz">
-    </div><br>
-    <input type="text" id="mesajKonu" placeholder="Konu"><br><br>
-    <textarea id="mesajIcerik" placeholder="Mesajınızı yazın..."></textarea><br><br>
-    <button class="btn secondary" onclick="mailHazirla()">Mail Uygulamasında Aç</button>
-  </div>
-</div><div class="footerSpace"></div>
-</div><script>
-function updateClock(){
-  const now = new Date();
-  document.getElementById('liveClock').textContent = now.toLocaleTimeString('tr-TR');
-  document.getElementById('liveDate').textContent = now.toLocaleDateString('tr-TR', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-}
+    </section>
 
-function buildCalendar(){
-  const grid = document.getElementById('calendarGrid');
-  const month = document.getElementById('calendarMonth');
-  if(!grid || !month) return;
-  const now = new Date();
-  const y = now.getFullYear();
-  const m = now.getMonth();
-  const today = now.getDate();
-  month.textContent = now.toLocaleDateString('tr-TR', { month:'long', year:'numeric' });
-  const headers = ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'];
-  const first = new Date(y, m, 1).getDay();
-  const offset = first === 0 ? 6 : first - 1;
-  const days = new Date(y, m + 1, 0).getDate();
-  let html = headers.map(h => `<div style="text-align:center;color:#9eb0cf;font-weight:700;">${h}</div>`).join('');
-  for(let i=0;i<offset;i++) html += `<div></div>`;
-  for(let d=1; d<=days; d++){
-    const isToday = d === today;
-    html += `<div style="text-align:center;padding:10px 0;border-radius:10px;background:${isToday ? '#1d4ed8' : '#16233a'};color:#fff;">${d}</div>`;
-  }
-  grid.innerHTML = html;
-}
+    <section class="section" id="grafik">
+      <h3>📊 Canlı Grafik ve Piyasa Ekranı</h3>
+      <div class="threeCol">
+        <a class="linkCard" href="https://tr.investing.com/indices/ise-100" target="_blank">
+          <strong>BIST100 Canlı</strong>
+          <span>Investing üzerinde canlı endeks sayfasını aç.</span>
+        </a>
+        <a class="linkCard" href="https://tr.investing.com/currencies/usd-try" target="_blank">
+          <strong>USD/TRY Canlı</strong>
+          <span>Dolar/TL canlı fiyat ve grafik.</span>
+        </a>
+        <a class="linkCard" href="https://tr.investing.com/currencies/eur-try" target="_blank">
+          <strong>EUR/TRY Canlı</strong>
+          <span>Euro/TL canlı fiyat ve grafik.</span>
+        </a>
+      </div>
 
-function kaydet(){
-  localStorage.setItem('ayna_baslik', document.getElementById('baslik').value);
-  localStorage.setItem('ayna_konu', document.getElementById('konu').value);
-  localStorage.setItem('ayna_yazi', document.getElementById('haftalikYazi').value);
-  alert('Kaydedildi');
-}
+      <div class="card" style="margin-top:14px;">
+        <h4 style="margin-top:0;">Investing Grafik Alanı</h4>
+        <p class="muted">En sağlam kullanım için aşağıdaki canlı sayfa düğmelerini kullan.</p>
+        <div class="actions">
+          <a class="btn secondary" href="https://tr.investing.com/indices/ise-100" target="_blank">BIST100 Aç</a>
+          <a class="btn secondary" href="https://tr.investing.com/currencies/gau-try" target="_blank">Gram Altın Aç</a>
+          <a class="btn secondary" href="https://tr.investing.com/currencies/usd-try" target="_blank">USD/TRY Aç</a>
+          <a class="btn secondary" href="https://tr.investing.com/currencies/eur-try" target="_blank">EUR/TRY Aç</a>
+        </div>
+      </div>
+    </section>
 
-function mailHazirla(){
-  const isim = document.getElementById('isim').value || '';
-  const mail = document.getElementById('mailAdres').value || '';
-  const konu = document.getElementById('mesajKonu').value || 'Ayna Trader İletişim';
-  const mesaj = document.getElementById('mesajIcerik').value || '';
-  const govde = `Ad: ${isim}
-E-posta: ${mail}
+    <section class="section" id="piyasa">
+      <h3>💹 Günlük Altın, Döviz ve Mevduat Faizi</h3>
+      <div class="card">
+        <div class="tableWrap">
+          <table class="rateTable">
+            <thead>
+              <tr><th>Kalem</th><th>Güncel Değer</th><th>Not</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Gram Altın</td><td>₺6.941,84</td><td>Referans değer</td></tr>
+              <tr><td>USD/TRY</td><td>44,7365</td><td>Güncel kur</td></tr>
+              <tr><td>EUR/TRY</td><td>52,7918</td><td>Güncel kur</td></tr>
+              <tr><td>32 Günlük Mevduat</td><td>%45 civarı üst seviye</td><td>Banka ve tutara göre değişir</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-Mesaj:
-${mesaj}`;
-  window.location.href = `mailto:alpay_bozdag@hotmail.com?subject=${encodeURIComponent(konu)}&body=${encodeURIComponent(govde)}`;
-}
+      <div class="fourCol" style="margin-top:14px;">
+        <a class="linkCard" href="https://bigpara.hurriyet.com.tr/altin/kapali-carsi-altin-fiyatlari/" target="_blank">
+          <strong>Altın Fiyatları</strong>
+          <span>Güncel altın ekranı.</span>
+        </a>
+        <a class="linkCard" href="https://www.tcmb.gov.tr/wps/wcm/connect/en/tcmb%2Ben/main%2Bmenu/statistics/exchange%2Brates/indicative%2Bexchange%2Brates" target="_blank">
+          <strong>TCMB Döviz</strong>
+          <span>Resmi günlük döviz kurları.</span>
+        </a>
+        <a class="linkCard" href="https://www.hesapkurdu.com/mevduat" target="_blank">
+          <strong>Mevduat Faizi</strong>
+          <span>Canlı karşılaştırma.</span>
+        </a>
+        <a class="linkCard" href="https://www.hangikredi.com/yatirim-araclari/mevduat-faiz-oranlari" target="_blank">
+          <strong>Banka Faiz Oranları</strong>
+          <span>Güncel oran bağlantısı.</span>
+        </a>
+      </div>
+    </section>
 
-document.getElementById('baslik').value = localStorage.getItem('ayna_baslik') || '';
-document.getElementById('konu').value = localStorage.getItem('ayna_konu') || '';
-document.getElementById('haftalikYazi').value = localStorage.getItem('ayna_yazi') || '';
-updateClock();
-buildCalendar();
-setInterval(updateClock, 1000);
-</script></body>
+    <section class="section" id="haber">
+      <h3>🌍 Reuters ve CNN Canlı Sayfaları</h3>
+      <div class="twoCol">
+        <a class="linkCard" href="https://www.reuters.com/markets/" target="_blank">
+          <strong>Reuters Markets</strong>
+          <span>Canlı piyasa ve global market haberleri.</span>
+        </a>
+        <a class="linkCard" href="https://www.cnn.com/business" target="_blank">
+          <strong>CNN Business</strong>
+          <span>İş dünyası ve piyasa haberleri.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="yazi">
+      <div class="card article">
+        <h3 style="margin-top:0;">✍️ Ekonomist Alpay Bozdağ - Haftanın Yazısı</h3>
+
+        <div id="articleBox" class="article-box">
+          <h2>Türkiye’de 2026 Sonbahar veya 2027 İlkbahar Devalüasyon İhtimalinin tarihsel ve istatistik dayanakları ve Nisan–Haziran 2026 Dönemi kur hareketleri Üzerine Bir Değerlendirme.</h2>
+          <p class="muted">Alpay Bozdağ / 3 Nisan 2026</p>
+
+          <p>2026 yılının Nisan, Mayıs ve Haziran aylarını kapsayan kısa vadeli görünüm değerlendirildiğinde, Türkiye’de ani ve sert bir “devalüasyon” (yani kısa sürede %10–20 ve üzeri kur sıçraması) ihtimalinin düşük olduğu; buna karşılık Türk lirasında kademeli ve kontrollü bir değer kaybının daha olası olduğu sonucuna ulaşılmaktadır. Önümüzdeki üç aylık dönemde dolar/TL kurunun toplamda yaklaşık %4–8 aralığında yükselmesi en güçlü senaryo olarak öne çıkarken, ani sıçrama ihtimali yaklaşık %25–30 bandında değerlendirilebilir. Bu tablo, kısa vadede bir “kur şoku”ndan ziyade, biriken baskının kontrollü şekilde fiyatlandığı bir sürece işaret etmektedir.</p>
+
+          <h4>📈 Kur Beklenti Grafiği (Nisan–Haziran 2026)</h4>
+
+          <p>Bu değerlendirmeyi doğru yorumlayabilmek için öncelikle “devalüasyon” kavramının günümüz Türkiye ekonomisindeki anlamını netleştirmek gerekir. Teknik olarak devalüasyon, sabit kur rejimlerinde devlet kararıyla yapılan resmi kur ayarlamasını ifade eder. Ancak Türkiye dalgalı kur rejiminde olduğu için piyasada kullanılan anlam, genellikle ani ve sert kur sıçramasıdır. Buna karşılık mevcut politika çerçevesi, ani kopuşlardan ziyade “yönetilen depreciasyon”, yani kontrollü değer kaybı üzerine kuruludur.</p>
+
+          <p>2026 Nisan ayı itibarıyla mevcut veriler, kurun görece dengeli ancak yukarı eğilimli bir seyir izlediğini göstermektedir. Bu çerçevede Nisan ayında kademeli artış ihtimali yaklaşık %70, ani sıçrama ihtimali %20 ve yatay seyir ihtimali %10 civarında değerlendirilebilir. Bu senaryoya göre dolar/TL’nin 44,5–45,5 bandında hareket etmesi beklenmektedir.</p>
+
+          <p>Mayıs ayına gelindiğinde kur üzerindeki baskının bir miktar artması mümkündür. Bu dönemde kademeli yükseliş ihtimali %65 civarında kalırken, ani sıçrama ihtimali %25 seviyesine yükselmektedir. Bu durumda dolar/TL’nin 45–46 bandına doğru ilerlemesi daha olası görünmektedir.</p>
+
+          <p>Haziran 2026 itibarıyla ise risklerin daha belirgin şekilde birikmesi söz konusudur. Kademeli artış senaryosu hâlâ en olası görünüm olsa da bunun olasılığı %60’a gerilerken, ani sıçrama ihtimali %30’a yaklaşmaktadır. Bu çerçevede kurun 46–47 bandına doğru yükselmesi beklenebilir.</p>
+
+          <p>Bu görünümün arkasında yatan temel dinamiklerden biri rezerv baskısıdır. Türkiye Cumhuriyet Merkez Bankası’nın kuru dengelemek amacıyla rezerv kullanması kısa vadede oynaklığı azaltırken, rezervlerdeki hızlı erime potansiyel bir kırılganlık yaratmaktadır. Buna ek olarak jeopolitik gelişmeler, özellikle bölgesel gerilimler ve enerji fiyatları üzerinden kur üzerinde baskı oluşturmaktadır. Enflasyonun yüksek ve yapışkan seyri ile faiz politikası üzerindeki baskılar da TL’nin değer kaybı eğilimini desteklemektedir.</p>
+
+          <p>Bununla birlikte ani bir kur şokunu engelleyen önemli faktörler de bulunmaktadır. Merkez Bankası’nın hâlâ müdahale kapasitesine sahip olması ve ekonomi yönetiminin kontrollü kur politikası izlemesi, kısa vadede sert sıçramaların önüne geçen en önemli unsurlardır. Ayrıca yakın dönemde seçim baskısının bulunmaması, ekonomik istikrarın korunmasına yönelik politika alanını genişletmektedir.</p>
+
+          <p>Tarihsel perspektif incelendiğinde Türkiye’de büyük kur kırılmalarının genellikle rezerv tükenmesi, enflasyon birikimi ve dış şokların aynı anda yoğunlaştığı dönemlerde ortaya çıktığı görülmektedir. Ortalama 8–12 yıllık aralıklarla gözlenen bu büyük hareketler dikkate alındığında, bir sonraki ciddi kur düzeltmesinin zamanlaması açısından 2026’nın ikinci yarısı ile 2027 dönemi daha kritik bir pencere olarak öne çıkmaktadır.</p>
+
+          <p>Sonuç olarak, 2026’nın ilk yarısında döviz piyasasında ani bir kırılmadan ziyade kontrollü bir yükseliş dinamiği hâkimdir. Ancak bu süreçte oluşan baskının tamamen ortadan kalkmadığı, aksine zaman içinde biriktiği unutulmamalıdır. Bu nedenle kısa vadede istikrar görünümü korunurken, orta vadede risklerin dikkatle izlenmesi gereken bir döneme girildiği söylenebilir.</p>
+
+          <p><strong>Alpay Bozdağ / 3 Nisan. 2026</strong></p>
+
+          <div class="fade-overlay"></div>
+        </div>
+
+        <div class="actions" style="margin-top:14px;">
+          <button id="toggleArticleBtn" class="btn secondary" onclick="toggleArticle()">Devamını Oku</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="iletisim">
+      <div class="card">
+        <h3 style="margin-top:0;">📬 İletişim</h3>
+        <p class="muted">WhatsApp kaldırıldı. İletişim için doğrudan e-posta adresi kullanılmaktadır.</p>
+        <div class="actions">
+          <a class="btn" href="mailto:alpay_bozdag@hotmail.com?subject=Ayna%20Trader%20İletişim">alpay_bozdag@hotmail.com</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="footerSpace"></div>
+  </div>
+
+  <script>
+    function updateClock(){
+      const now = new Date();
+      document.getElementById('liveClock').textContent = now.toLocaleTimeString('tr-TR');
+      document.getElementById('liveDate').textContent = now.toLocaleDateString('tr-TR', {
+        weekday:'long',
+        year:'numeric',
+        month:'long',
+        day:'numeric'
+      });
+    }
+
+    function buildCalendar(){
+      const grid = document.getElementById('calendarGrid');
+      const month = document.getElementById('calendarMonth');
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = now.getMonth();
+      const today = now.getDate();
+
+      month.textContent = now.toLocaleDateString('tr-TR', {
+        month:'long',
+        year:'numeric'
+      });
+
+      const headers = ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'];
+      const first = new Date(y, m, 1).getDay();
+      const offset = first === 0 ? 6 : first - 1;
+      const days = new Date(y, m + 1, 0).getDate();
+
+      let html = headers.map(h =>
+        `<div style="text-align:center;color:#9eb0cf;font-weight:700;">${h}</div>`
+      ).join('');
+
+      for(let i=0;i<offset;i++) html += '<div></div>';
+
+      for(let d=1; d<=days; d++){
+        const isToday = d === today;
+        html += `<div style="text-align:center;padding:10px 0;border-radius:10px;background:${isToday ? '#1d4ed8' : '#16233a'};color:#fff;">${d}</div>`;
+      }
+
+      grid.innerHTML = html;
+    }
+
+    function toggleArticle(){
+      const box = document.getElementById('articleBox');
+      const btn = document.getElementById('toggleArticleBtn');
+
+      box.classList.toggle('expanded');
+
+      if(box.classList.contains('expanded')){
+        btn.textContent = 'Daralt';
+      } else {
+        btn.textContent = 'Devamını Oku';
+        box.scrollTop = 0;
+      }
+    }
+
+    updateClock();
+    buildCalendar();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
 </html>
