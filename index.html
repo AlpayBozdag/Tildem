@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
   <script 
@@ -224,10 +224,37 @@
       display:none;
     }
 
+    .statsBox{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(180px,1fr));
+      gap:12px;
+    }
+
+    .statMini{
+      background:rgba(255,255,255,.04);
+      padding:14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      text-align:center;
+    }
+
+    .statMini small{
+      display:block;
+      color:var(--muted);
+      margin-bottom:6px;
+      font-size:13px;
+    }
+
+    .statMini strong{
+      font-size:26px;
+      display:block;
+    }
+
     .footerSpace{height:18px}
 
     @media (max-width:900px){
-      .hero,.threeCol,.fourCol,.twoCol{grid-template-columns:1fr}
+      .hero,.threeCol,.fourCol,.twoCol,.statsBox{grid-template-columns:1fr}
       .hero h1{font-size:32px}
     }
   </style>
@@ -409,6 +436,18 @@
         <p class="muted">WhatsApp kaldırıldı. İletişim için doğrudan e-posta adresi kullanılmaktadır.</p>
         <div class="actions">
           <a class="btn" href="mailto:alpay_bozdag@hotmail.com?subject=Ayna%20Trader%20İletişim">alpay_bozdag@hotmail.com</a>
+          <a class="btn secondary" href="documents/AYNA_V11_1.zip" data-goatcounter-click="download-v11" data-goatcounter-title="AYNA V11.1 Download">📥 AYNA V11.1 İndir</a>
+        </div>
+
+        <div class="statsBox">
+          <div class="statMini">
+            <small>👀 Ziyaretçi</small>
+            <strong id="visits">...</strong>
+          </div>
+          <div class="statMini">
+            <small>📥 İndirme</small>
+            <strong id="downloads">...</strong>
+          </div>
         </div>
       </div>
     </section>
@@ -474,13 +513,30 @@
       }
     }
 
+    async function loadStats() {
+      try {
+        const pagePath = location.pathname && location.pathname !== '/' ? location.pathname : '/';
+
+        const v = await fetch("https://alpay.goatcounter.com/counter/" + encodeURIComponent(pagePath) + ".json", { cache: "no-store" });
+        const vdata = await v.json();
+
+        const d = await fetch("https://alpay.goatcounter.com/counter/download-v11.json", { cache: "no-store" });
+        const ddata = await d.json();
+
+        document.getElementById("visits").innerText = vdata.count || 0;
+        document.getElementById("downloads").innerText = ddata.count || 0;
+      } catch(e) {
+        console.log("Sayaç hata:", e);
+        document.getElementById("visits").innerText = "0";
+        document.getElementById("downloads").innerText = "0";
+      }
+    }
+
     updateClock();
     buildCalendar();
+    loadStats();
     setInterval(updateClock, 1000);
+    setInterval(loadStats, 15000);
   </script>
-<div style="margin-top:20px; font-size:18px; text-align:center;">
-👀 Ziyaretçi: <span id="visits">...</span><br>
-📥 İndirme: <span id="downloads">...</span>
-</div>
 </body>
 </html>
