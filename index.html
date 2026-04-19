@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <script 
-    data-goatcounter="https://alpay.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ayna Trader Pro</title>
+  <script data-goatcounter="https://alpay.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <style>
     :root{
       --bg:#07111f;
@@ -20,10 +18,8 @@
       --amber:#f59e0b;
       --line:rgba(255,255,255,.08);
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-
     body{
       margin:0;
       font-family:Arial, Helvetica, sans-serif;
@@ -31,14 +27,8 @@
       color:var(--text);
       line-height:1.65;
     }
-
     a{text-decoration:none;color:inherit}
-
-    .container{
-      width:min(95%,1180px);
-      margin:auto;
-    }
-
+    .container{width:min(95%,1180px);margin:auto;}
     header{
       background:#050b16;
       padding:15px 0;
@@ -47,24 +37,15 @@
       top:0;
       z-index:10;
     }
-
-    nav a{
-      margin-right:10px;
-      color:#aaa;
-      font-weight:700;
-    }
-
+    nav a{margin-right:10px;color:#aaa;font-weight:700;}
     nav a:hover{color:#fff}
-
     .section{margin-top:22px}
-
     .card{
       background:linear-gradient(180deg,var(--panel),var(--panel2));
       padding:20px;
       border-radius:18px;
       border:1px solid var(--line);
     }
-
     .btn{
       display:inline-block;
       padding:12px 16px;
@@ -75,17 +56,14 @@
       cursor:pointer;
       font-weight:700;
     }
-
     .btn.secondary{background:var(--blue)}
     .btn.amber{background:var(--amber); color:#111}
-
     .hero{
       display:grid;
       grid-template-columns:1.2fr .8fr;
       gap:16px;
       align-items:stretch;
     }
-
     .badge{
       display:inline-block;
       padding:8px 12px;
@@ -96,62 +74,21 @@
       font-weight:700;
       margin-bottom:12px;
     }
-
-    .hero h1{
-      margin:0 0 10px;
-      font-size:42px;
-      line-height:1.06;
-    }
-
+    .hero h1{margin:0 0 10px;font-size:42px;line-height:1.06;}
     .muted{color:var(--muted)}
-
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:14px;
-    }
-
-    .miniGrid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-      margin-top:16px;
-    }
-
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+    .miniGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px;}
     .mini{
       background:rgba(255,255,255,.04);
       padding:14px;
       border-radius:14px;
       border:1px solid var(--line);
     }
-
-    .mini small{
-      display:block;
-      color:var(--muted);
-      margin-bottom:6px;
-    }
-
+    .mini small{display:block;color:var(--muted);margin-bottom:6px;}
     .mini strong{font-size:22px}
-
-    .twoCol{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-    }
-
-    .threeCol{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-
-    .fourCol{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-    }
-
+    .twoCol{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .threeCol{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .fourCol{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
     .linkCard{
       display:block;
       background:rgba(255,255,255,.04);
@@ -159,78 +96,47 @@
       border-radius:14px;
       border:1px solid var(--line);
     }
-
-    .linkCard span{
-      display:block;
-      color:var(--muted);
-      margin-top:6px;
-    }
-
+    .linkCard span{display:block;color:var(--muted);margin-top:6px;}
     .tableWrap{overflow:auto}
-
-    .rateTable{
-      width:100%;
-      border-collapse:collapse;
-    }
-
-    .rateTable th,
-    .rateTable td{
+    .rateTable{width:100%;border-collapse:collapse;}
+    .rateTable th,.rateTable td{
       padding:12px 10px;
       border-bottom:1px solid var(--line);
       text-align:left;
     }
-
     .rateTable th{color:#cfe0ff}
-
     .article h2{margin:0 0 8px}
     .article h4{margin:24px 0 8px;color:#dfeaff}
     .article p{margin:0 0 14px}
-    .article ul{margin:0 0 14px 18px}
-    .article li{margin-bottom:8px}
-
     .article-box{
       max-height:320px;
       overflow:hidden;
       position:relative;
       transition:max-height .35s ease;
     }
-
     .article-box.expanded{
       max-height:2000px;
       overflow-y:auto;
       padding-right:8px;
     }
-
-    .article-box.expanded::-webkit-scrollbar{
-      width:6px;
-    }
-
+    .article-box.expanded::-webkit-scrollbar{width:6px;}
     .article-box.expanded::-webkit-scrollbar-thumb{
       background:#1d4ed8;
       border-radius:10px;
     }
-
     .fade-overlay{
       position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      height:90px;
+      left:0;right:0;bottom:0;height:90px;
       background:linear-gradient(to bottom, rgba(16,27,45,0), rgba(16,27,45,1));
       pointer-events:none;
     }
-
-    .article-box.expanded .fade-overlay{
-      display:none;
-    }
-
+    .article-box.expanded .fade-overlay{display:none;}
     .statsBox{
       margin-top:18px;
       display:grid;
       grid-template-columns:repeat(2,minmax(180px,1fr));
       gap:12px;
     }
-
     .statMini{
       background:rgba(255,255,255,.04);
       padding:14px;
@@ -238,21 +144,14 @@
       border:1px solid var(--line);
       text-align:center;
     }
-
     .statMini small{
       display:block;
       color:var(--muted);
       margin-bottom:6px;
       font-size:13px;
     }
-
-    .statMini strong{
-      font-size:26px;
-      display:block;
-    }
-
+    .statMini strong{font-size:26px;display:block;}
     .footerSpace{height:18px}
-
     @media (max-width:900px){
       .hero,.threeCol,.fourCol,.twoCol,.statsBox{grid-template-columns:1fr}
       .hero h1{font-size:32px}
@@ -302,7 +201,6 @@
             </div>
             <div style="color:#f59e0b;font-weight:700;">Europe/Istanbul</div>
           </div>
-
           <h3 style="margin-top:0;">📅 Takvim</h3>
           <div id="calendarMonth" style="color:#9eb0cf;margin-bottom:10px;"></div>
           <div id="calendarGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;"></div>
@@ -326,7 +224,6 @@
           <span>Euro/TL canlı fiyat ve grafik.</span>
         </a>
       </div>
-
       <div class="card" style="margin-top:14px;">
         <h4 style="margin-top:0;">Investing Grafik Alanı</h4>
         <p class="muted">En sağlam kullanım için aşağıdaki canlı sayfa düğmelerini kullan.</p>
@@ -356,7 +253,6 @@
           </table>
         </div>
       </div>
-
       <div class="fourCol" style="margin-top:14px;">
         <a class="linkCard" href="https://bigpara.hurriyet.com.tr/altin/kapali-carsi-altin-fiyatlari/" target="_blank">
           <strong>Altın Fiyatları</strong>
@@ -394,36 +290,16 @@
     <section class="section" id="yazi">
       <div class="card article">
         <h3 style="margin-top:0;">✍️ Ekonomist Alpay Bozdağ - Haftanın Yazısı</h3>
-
         <div id="articleBox" class="article-box">
           <h2>Türkiye’de 2026 Sonbahar veya 2027 İlkbahar Devalüasyon İhtimalinin tarihsel ve istatistik dayanakları ve Nisan–Haziran 2026 Dönemi kur hareketleri Üzerine Bir Değerlendirme.</h2>
           <p class="muted">Alpay Bozdağ / 3 Nisan 2026</p>
-
-          <p>2026 yılının Nisan, Mayıs ve Haziran aylarını kapsayan kısa vadeli görünüm değerlendirildiğinde, Türkiye’de ani ve sert bir “devalüasyon” (yani kısa sürede %10–20 ve üzeri kur sıçraması) ihtimalinin düşük olduğu; buna karşılık Türk lirasında kademeli ve kontrollü bir değer kaybının daha olası olduğu sonucuna ulaşılmaktadır. Önümüzdeki üç aylık dönemde dolar/TL kurunun toplamda yaklaşık %4–8 aralığında yükselmesi en güçlü senaryo olarak öne çıkarken, ani sıçrama ihtimali yaklaşık %25–30 bandında değerlendirilebilir. Bu tablo, kısa vadede bir “kur şoku”ndan ziyade, biriken baskının kontrollü şekilde fiyatlandığı bir sürece işaret etmektedir.</p>
-
+          <p>2026 yılının Nisan, Mayıs ve Haziran aylarını kapsayan kısa vadeli görünüm değerlendirildiğinde, Türkiye’de ani ve sert bir “devalüasyon” ihtimalinin düşük olduğu; buna karşılık Türk lirasında kademeli ve kontrollü bir değer kaybının daha olası olduğu sonucuna ulaşılmaktadır.</p>
           <h4>📈 Kur Beklenti Grafiği (Nisan–Haziran 2026)</h4>
-
-          <p>Bu değerlendirmeyi doğru yorumlayabilmek için öncelikle “devalüasyon” kavramının günümüz Türkiye ekonomisindeki anlamını netleştirmek gerekir. Teknik olarak devalüasyon, sabit kur rejimlerinde devlet kararıyla yapılan resmi kur ayarlamasını ifade eder. Ancak Türkiye dalgalı kur rejiminde olduğu için piyasada kullanılan anlam, genellikle ani ve sert kur sıçramasıdır. Buna karşılık mevcut politika çerçevesi, ani kopuşlardan ziyade “yönetilen depreciasyon”, yani kontrollü değer kaybı üzerine kuruludur.</p>
-
-          <p>2026 Nisan ayı itibarıyla mevcut veriler, kurun görece dengeli ancak yukarı eğilimli bir seyir izlediğini göstermektedir. Bu çerçevede Nisan ayında kademeli artış ihtimali yaklaşık %70, ani sıçrama ihtimali %20 ve yatay seyir ihtimali %10 civarında değerlendirilebilir. Bu senaryoya göre dolar/TL’nin 44,5–45,5 bandında hareket etmesi beklenmektedir.</p>
-
-          <p>Mayıs ayına gelindiğinde kur üzerindeki baskının bir miktar artması mümkündür. Bu dönemde kademeli yükseliş ihtimali %65 civarında kalırken, ani sıçrama ihtimali %25 seviyesine yükselmektedir. Bu durumda dolar/TL’nin 45–46 bandına doğru ilerlemesi daha olası görünmektedir.</p>
-
-          <p>Haziran 2026 itibarıyla ise risklerin daha belirgin şekilde birikmesi söz konusudur. Kademeli artış senaryosu hâlâ en olası görünüm olsa da bunun olasılığı %60’a gerilerken, ani sıçrama ihtimali %30’a yaklaşmaktadır. Bu çerçevede kurun 46–47 bandına doğru yükselmesi beklenebilir.</p>
-
-          <p>Bu görünümün arkasında yatan temel dinamiklerden biri rezerv baskısıdır. Türkiye Cumhuriyet Merkez Bankası’nın kuru dengelemek amacıyla rezerv kullanması kısa vadede oynaklığı azaltırken, rezervlerdeki hızlı erime potansiyel bir kırılganlık yaratmaktadır. Buna ek olarak jeopolitik gelişmeler, özellikle bölgesel gerilimler ve enerji fiyatları üzerinden kur üzerinde baskı oluşturmaktadır. Enflasyonun yüksek ve yapışkan seyri ile faiz politikası üzerindeki baskılar da TL’nin değer kaybı eğilimini desteklemektedir.</p>
-
-          <p>Bununla birlikte ani bir kur şokunu engelleyen önemli faktörler de bulunmaktadır. Merkez Bankası’nın hâlâ müdahale kapasitesine sahip olması ve ekonomi yönetiminin kontrollü kur politikası izlemesi, kısa vadede sert sıçramaların önüne geçen en önemli unsurlardır. Ayrıca yakın dönemde seçim baskısının bulunmaması, ekonomik istikrarın korunmasına yönelik politika alanını genişletmektedir.</p>
-
-          <p>Tarihsel perspektif incelendiğinde Türkiye’de büyük kur kırılmalarının genellikle rezerv tükenmesi, enflasyon birikimi ve dış şokların aynı anda yoğunlaştığı dönemlerde ortaya çıktığı görülmektedir. Ortalama 8–12 yıllık aralıklarla gözlenen bu büyük hareketler dikkate alındığında, bir sonraki ciddi kur düzeltmesinin zamanlaması açısından 2026’nın ikinci yarısı ile 2027 dönemi daha kritik bir pencere olarak öne çıkmaktadır.</p>
-
-          <p>Sonuç olarak, 2026’nın ilk yarısında döviz piyasasında ani bir kırılmadan ziyade kontrollü bir yükseliş dinamiği hâkimdir. Ancak bu süreçte oluşan baskının tamamen ortadan kalkmadığı, aksine zaman içinde biriktiği unutulmamalıdır. Bu nedenle kısa vadede istikrar görünümü korunurken, orta vadede risklerin dikkatle izlenmesi gereken bir döneme girildiği söylenebilir.</p>
-
-          <p><strong>Alpay Bozdağ / 3 Nisan. 2026</strong></p>
-
+          <p>Bu değerlendirmeyi doğru yorumlayabilmek için öncelikle “devalüasyon” kavramının günümüz Türkiye ekonomisindeki anlamını netleştirmek gerekir. Teknik olarak devalüasyon, sabit kur rejimlerinde devlet kararıyla yapılan resmi kur ayarlamasını ifade eder. Ancak Türkiye dalgalı kur rejiminde olduğu için piyasada kullanılan anlam, genellikle ani ve sert kur sıçramasıdır.</p>
+          <p>Sonuç olarak, 2026’nın ilk yarısında döviz piyasasında ani bir kırılmadan ziyade kontrollü bir yükseliş dinamiği hâkimdir. Ancak bu süreçte oluşan baskının tamamen ortadan kalkmadığı, aksine zaman içinde biriktiği unutulmamalıdır.</p>
+          <p><strong>Alpay Bozdağ / 3 Nisan 2026</strong></p>
           <div class="fade-overlay"></div>
         </div>
-
         <div class="actions" style="margin-top:14px;">
           <button id="toggleArticleBtn" class="btn secondary" onclick="toggleArticle()">Devamını Oku</button>
         </div>
@@ -436,9 +312,14 @@
         <p class="muted">WhatsApp kaldırıldı. İletişim için doğrudan e-posta adresi kullanılmaktadır.</p>
         <div class="actions">
           <a class="btn" href="mailto:alpay_bozdag@hotmail.com?subject=Ayna%20Trader%20İletişim">alpay_bozdag@hotmail.com</a>
-          <a class="btn secondary" href="documents/AYNA_V11_1.zip" data-goatcounter-click="download-v11" data-goatcounter-title="AYNA V11.1 Download">📥 AYNA V11.1 İndir</a>
+          <a id="downloadBtn"
+             class="btn secondary"
+             href="documents/AYNA_V11_1.zip"
+             data-goatcounter-click="download-v11"
+             data-goatcounter-title="AYNA V11.1 indir">
+             📥 AYNA V11.1 indir
+          </a>
         </div>
-
         <div class="statsBox">
           <div class="statMini">
             <small>👀 Ziyaretçi</small>
@@ -502,9 +383,7 @@
     function toggleArticle(){
       const box = document.getElementById('articleBox');
       const btn = document.getElementById('toggleArticleBtn');
-
       box.classList.toggle('expanded');
-
       if(box.classList.contains('expanded')){
         btn.textContent = 'Daralt';
       } else {
@@ -513,23 +392,27 @@
       }
     }
 
-    async function loadStats() {
-      try {
-        const pagePath = location.pathname && location.pathname !== '/' ? location.pathname : '/';
-
-        const v = await fetch("https://alpay.goatcounter.com/counter/" + encodeURIComponent(pagePath) + ".json", { cache: "no-store" });
-        const vdata = await v.json();
-
-        const d = await fetch("https://alpay.goatcounter.com/counter/download-v11.json", { cache: "no-store" });
-        const ddata = await d.json();
-
-        document.getElementById("visits").innerText = vdata.count || 0;
-        document.getElementById("downloads").innerText = ddata.count || 0;
-      } catch(e) {
-        console.log("Sayaç hata:", e);
-        document.getElementById("visits").innerText = "0";
-        document.getElementById("downloads").innerText = "0";
+    async function fetchCounter(path){
+      try{
+        const res = await fetch("https://alpay.goatcounter.com/counter/" + encodeURIComponent(path) + ".json", {cache:"no-store"});
+        if(!res.ok) return 0;
+        const data = await res.json();
+        return data.count || 0;
+      }catch(e){
+        return 0;
       }
+    }
+
+    async function loadStats() {
+      const visitCandidates = ['/Tildem/', '/Tildem/index.html', location.pathname || '/'];
+      let visitCount = 0;
+      for (const path of visitCandidates) {
+        const count = await fetchCounter(path);
+        if (count > visitCount) visitCount = count;
+      }
+      const downloadCount = await fetchCounter('download-v11');
+      document.getElementById("visits").textContent = visitCount;
+      document.getElementById("downloads").textContent = downloadCount;
     }
 
     updateClock();
